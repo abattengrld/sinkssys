@@ -4,10 +4,27 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sinks R Us Log-in Page</title>
-        <link rel="stylesheet" href="style.css">
+        <script src="https://cdn.tailwindcss.com"></script>
     </head>
 
-    <body>
-        <p>log-in page</p>
+    <body class="bg-[url('copy-space-sink.jpg')] bg-center bg-cover bg-no-repeat h-[100vh] w-screen relative flex items-center">
+        <div class="w-screen h-[100vh] bg-black opacity-40 absolute top-0 left-0"></div>
+        <div class="relative text-white text-center flex flex-col gap-4 mx-auto border-2 rounded-md px-4 min-w-[40%] py-6 shadow-xl shadow-gray-500">
+            <h1 class="text-2x1 uppercase font-semibold">Employee Login</h1>
+            <div class="flex flex-col gap-2 w-[70%] mx-auto">
+                <label class="text-x1 font-semibold text-left" for="">Username</label>
+                <input class="outline-none px-4 py-2 rounded-full bg-transparent border-2 text-white" type="text" placeholder="Enter your Username">
+            </div>
+            <div class="flex flex-col gap-2 w-[70%] mx-auto">
+                <label class="text-x1 font-semibold text-left" for="">Password</label>
+                <input class="outline-none px-4 py-2 rounded-full bg-transparent border-2" text-white type="password" placeholder="Enter your Password">
+            </div>
+            <div class="text-md flex gap-4 mx-auto items-center">
+                <input type="checkbox" name="Remember Me" id="">
+                <label for="">Remember Me</label>
+                <a class="hover:underline" href="#">Forgot Password</a>
+            </div>
+            <button class="bg-gray-700 px-4 py-2 rounded-md text-xl w-[200px] mx-auto hover:bg-transparent hover:border-gray-600 border-2">Login</button>
+        </div>
     </body>
 </html>
