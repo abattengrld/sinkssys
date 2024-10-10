@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tailwind CSS Modal</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    
+    <body class="bg-slate-200 flex items-center justify-center min-h-screen">
+        <!--flex (is a class use to activate items-center, justify-center) 
+        items-center (class to put content in center-top) 
+        justify-center (put content in x,y=0 center of whole page)
+        min-h-screen (make it 100% viewport of whole screen)
+        -->
+        
+        <!--button to open modal-->
+        <div>
+            <label for="actionButton" class="bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-600 cursor-pointer transition duration-300">Action</label> 
+            <!--px (padding left-right) 
+            py (padding top-bot)
+            transition duration-300 (changes color for 0.3 seconds)-->
+        </div>
+
+        <!--set as checkbox to hide at first-->
+        <input type="checkbox" id="actionButton" class="hidden">
+
+        <!--Bg of modal (show when checkbox is checked)-->
+        <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 transition-opacity  duration-300 opacity-0 pointer-events-none" id="modal">
+            <!--fixed (stays in same position even page is scrolled)
+            inset-0 (top, right, bot, left set to 0 making element cover entire viewport from all sides)
+            bg-black (sets background/overlay to black)
+            bg-opacity-50 (makes black bg 50% semi transparent overlay)
+            z-50 (z-index set 50 ensures modal is dislayed above content)
+            transition-opacity (smooth transition effect from og to bg black overlay)
+            opacity-0 (makes it fully invisible)
+            pointer-events-none (wont capture mouse movements, no interaction with bg)-->
+
+            <!--MODAL-->
+            <div class="bg-white rounded-lg shadow-lg max-w-4xl w-full p-6 relative max-h-screen overflow-y-auto">
+                <!--max-w-md (makes white bg be in maximum width of the element=medium size)
+                shadow-lg (large shadow around the element)
+                w-full (set element width to 100% or bigger than blue button)
+                relative (element position based on layout but can edit position: top, right, bot, left)
+                max-h-96 (limits max height of modal)
+                overflow-y-auto (allow vertical scrolling when content exceeds max height)-->
+
+                <section class="relative">
+                    <div class=" h-48 w-full rounded-t-lg object-cover">
+                        <img src ="ivan4.png" class="h-28 bg-gray-400 object-cover rounded w-full">
+                    <div class="text-center pt-5">
+                        <h2 class="bg-none text-xl font-bold">Ivan Petrov</h2>
+                        <h3 class="font-normal text-gray-500">ivan.petrov@sinksrus.com</h3>
+                    </div>
+                    </div>
+                    <!--rounded-t-lg (round corner at top)
+                    object-cover (occupies space, cuts pic if needed)-->
+                </section>
+
+                <!--MODAL BODY-->
+                <section> 
+                    <section class="flex flex-row items-center justify-stretch mt-10 pt-10">
+                        <p class="text-gray-600 w-60"><strong>Sex:</strong></p>
+                        <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm sm:text-base whitespace-nowrap w-full"> Male</p>
+                    </section>
+
+                    <section class="flex flex-row items-center justify-stretch mt-2">
+                        <!--justify-stretch (fill avail space)-->
+                        <p class="text-gray-600 w-60"><strong>Address:</strong></p>
+                        <!--strong (make text bold, gives importance)-->
+                        <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm sm:text-base whitespace-nowrap w-full"> 12 Red Square, Moscow</p>
+                        <!--pl (padding-left)
+                        text-sm (text-small)
+                        pr-5 (padding-right: 1.25rem or 20px)
+                        py-2 (padding top and bottom: 0.5rem or 8px)
+                        ml-4 (margin-left: 1rem or 16px for 300 width screen)
+                        sm:text-base (screen min 640 width, text size=default/standard text size)
+                        whitespace-nowrap (prevents text from wrapping)-->
+                    </section>
+
+                    <section class="flex flex-row items-center justify-stretch mt-2">
+                        <p class="text-gray-600 w-60"><strong>Contact No.</strong></p>
+                        <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm sm:text-base whitespace-nowrap w-full ">555-6789</p>
+                    </section>
+
+                    <section class="flex flex-row items-center justify-stretch mt-2">
+                        <p class="text-gray-600 w-60"><strong>Marital Status</strong></p>
+                        <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm sm:text-base whitespace-nowrap w-full ">Single</p>
+                    </section>
+
+                    <section class="flex flex-row items-center justify-stretch mt-2">
+                        <p class="text-gray-600 w-60"><strong>Department:</strong></p>
+                        <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm sm:text-base whitespace-nowrap w-full ">IT</p>
+                    </section>
+
+                    <section class="flex flex-row items-center justify-stretch mt-2">
+                        <p class="text-gray-600 w-60"><strong>Job Title:</strong></p>
+                        <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm sm:text-base whitespace-nowrap w-full ">Software Engineer</p>
+                    </section>
+                </section>
+
+                <!--Close Button-->
+                <label for="actionButton" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700 cursor-pointer">&times;</label>
+                <!--absolute (positions to nearest positioned: relative/absolute/fixed position)
+                top-3 (margin-top)
+                right-3 (margin-right)
+                text-gray-700 (makes the times or x button like be gray)
+                cursor-pointer (change cursor to pointer hand)
+                &times (html entity for multiplication sign, symbol for close)-->
+                </div>
+            </div>
+
+            <style>
+                /* When the checkbox is checked, show the modal*/
+                input:checked ~ #modal {
+                opacity:1;
+                pointer-events: auto;
+                }
+            </style>
+    </body>
+</html>
