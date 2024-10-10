@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sinks R Us Log-in Page</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+
+    <body>
+        <section class="bg-[#476072] bg-center bg-cover bg-no-repeat h-[100vh] min-h-screen flex items-center justify-center">
+            <div class="bg-gray-100 flex rounded-2xl shadow-lg max-w-3xl  mx-5">
+                <div class="sm:w-1/2 p-10">
+                    <h2 class="font-bold text-2xl text-[#334257]">Welcome!</h2>
+                    <p class="text-sm mt-4 text-[#334257]">Please log in with your company credentials.</p>
+
+                    <form action="" class="flex flex-col items-center gap-4">
+                        <input class="w-[90%] p-2 mt-8 rounded-xl" type="text" name="username" placeholder="Username">
+                        <input class="w-[90%] p-2 rounded-xl border" type="password" name="password" placeholder="Password">
+                        <button class="w-[50%] bg-[#334257] rounded-xl text-white py-2">Log in</button>
+                    </form>
+
+                    <div class="text-md flex gap-4 mx-auto justify-center text-sm mt-4 text-[#334257]">
+                        <input type="checkbox" name="Remember Me" id="">
+                        <label for="">Remember Me</label>
+                        <a class="hover:underline" href="#">Forgot Password</a>
+                    </div>
+
+                    <div class="mt-20 grid grid-cols-3 items-center text-gray-400">
+                        <hr class="border-gray-400">
+                        <p class="text-center text-sm">OR</p>
+                        <hr class="border-gray-400">
+                    </div>
+
+                    <div class="text-md flex gap-4 mx-auto items-center text-xs mt-4 text-[#002d74]">
+                        <p class="text-center"> Having trouble signing in? Please send an email to <a class="underline" href="#">ITdepartment@company.com</a> or refer to your supervisor.</p>
+                        
+                    </div>
+                </div>
+
+                <div class="md:block hidden w-1/2 p-5 bg-blue-200 rounded-2xl">
+                    <h2 class="font-bold text-2xl text-[#002d74]">??</h2>
+                </div>
+
+            </div>
+        </section>
+    </body>
+
+</html>
