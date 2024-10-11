@@ -1,9 +1,101 @@
+
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sinks R Us Employee Page</title>
-        <link rel="stylesheet" href="list.css">
-    </head>
-</html>
+
+<head>
+  <link rel="stylesheet" href="list.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+      <h1>Sink R Us</h1>
+      <table id="employeeTable">
+          <thead>
+              <tr>
+                  <th onclick="sortTable(0)">Name &#x25B2;</th>
+                  <th>Job Title</th>
+                  <th>Department</th>
+                  <th>Email</th>
+                  <th>Action</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>Ivan Petrov</td>
+                  <td>Software Engineer</td>
+                  <td>IT</td>
+                  <td>ivan.petrov@sinkrus.com</td>
+                  <td>More</td>
+              </tr>
+              <tr>
+                  <td>Pedro Los Baños</td>
+                  <td>Marketing Manager</td>
+                  <td>Marketing</td>
+                  <td>pedro_los_banos@sinksrus.com</td>
+                  <td>More</td>
+              </tr>
+              <tr>
+                  <td>Ana Gómez</td>
+                  <td>HR Specialist</td>
+                  <td>HR</td>
+                  <td>ana.gomez@sinksrus.com</td>
+                  <td>More</td>
+              </tr>
+              <tr>
+                  <td>John Wu</td>
+                  <td>Sales Associate</td>
+                  <td>Sales</td>
+                  <td>john.wu@sinksrus.com</td>
+                  <td>More</td>
+              </tr>
+              <tr>
+                  <td>Emma Wilson</td>
+                  <td>CEO</td>
+                  <td>Admin</td>
+                  <td>emma@sinksrus.com</td>
+                  <td>More</td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+
+  <script>
+      function sortTable(columnIndex) {
+          const table = document.getElementById("employeeTable");
+          let rows, switching, i, x, y, shouldSwitch, dir, switchCount = 0;
+          switching = true;
+          dir = "asc"; // Set the sorting direction to ascending initially
+        
+          while (switching) {
+              switching = false;
+              rows = table.rows;
+              for (i = 1; i < (rows.length - 1); i++) {
+                  shouldSwitch = false;
+                  x = rows[i].getElementsByTagName("TD")[columnIndex];
+                  y = rows[i + 1].getElementsByTagName("TD")[columnIndex];
+                  if (dir == "asc") {
+                      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                          shouldSwitch = true;
+                          break;
+                      }
+                  } else if (dir == "desc") {
+                      if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                          shouldSwitch = true;
+                          break;
+                      }
+                  }
+              }
+              if (shouldSwitch) {
+                  rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                  switching = true;
+                  switchCount++;
+              } else {
+                  if (switchCount == 0 && dir == "asc") {
+                      dir = "desc";
+                      switching = true;
+                  }
+              }
+          }
+      }
+  </script>
+</body>
