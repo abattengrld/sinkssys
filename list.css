@@ -43,8 +43,8 @@ table {
   border-collapse: collapse;
   background-color: white;
   text-align: left;
-  margin: 20px auto; /* Adds margin for better visibility of box shadow */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Ensure shadow is always visible */
+  margin: 20px auto; 
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
 }
 
 th,
@@ -85,7 +85,7 @@ tr:nth-child(even) {
   table {
     width: 100%;
     font-size: 0.8rem;
-    margin: 10px auto; /* Reduce margin for smaller screens, keeping box shadow visible */
+    margin: 10px auto; 
   }
 }
 
@@ -102,7 +102,7 @@ tr:nth-child(even) {
 
   table {
     font-size: 0.7rem;
-    margin: 5px auto; /* Smaller margin but still maintains box shadow visibility */
+    margin: 5px auto; 
   }
 
   .table-wrapper {
@@ -114,7 +114,7 @@ tr:nth-child(even) {
 @media (min-width: 1024px) {
   table {
     max-width: 80%;
-    margin: 30px auto; /* Larger margin on bigger screens for shadow to be prominent */
+    margin: 30px auto; 
   }
 
   th,
@@ -127,7 +127,7 @@ tr:nth-child(even) {
 @media (min-width: 1440px) {
   table {
     max-width: 100%;
-    margin: 40px auto; /* Further margin increase for very large screens */
+    margin: 40px auto; 
   }
 
   th,
