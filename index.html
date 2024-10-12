@@ -25,18 +25,16 @@
                     <h2 class="font-bold  text-2xl text-white">Welcome</h2>
                     <p class="text-sm mt-4 text-white">Please log in with your company credentials.</p>
 
-                    <form name="myForm" action="" method="post" class="flex flex-col items-center gap-4">
+                    <form name="myForm" action="employee_list.html" method="get" class="flex flex-col items-center gap-4">
                         <input class="bg-transparent w-[80%] p-2 mt-8 rounded-md border-2 text-white" type="text" name="username" required placeholder="Username">
                         <input class="bg-transparent w-[80%] p-2 rounded-md border-2 text-white" type="password" name="password" required placeholder="Password">
                         <div class="text-md flex gap-4 mx-auto justify-center text-xs text-white">
-                            <input type="checkbox" name="Remember Me" id="">
-                            <label for="">Remember Me</label>
+                            <input type="checkbox" name="rememberMe" id="rememberMe">
+                            <label for="rememberMe">Remember Me</label>
                             <a class="underline hover:text-gray-700" href="" target="_blank">Forgot Password</a>
                         </div>
-                        <button href="employee_list.html" class="w-[50%] px-4 bg-gray-700 rounded-md hover:bg-transparent hover:border-gray-600 border-2 text-center text-white py-2">Log in</button>
+                        <button type="submit" class="w-[50%] px-4 bg-gray-700 rounded-md hover:bg-transparent hover:border-gray-600 border-2 text-center text-white py-2">Log in</button>
                     </form>
-
-
 
                     <div class="mt-20 grid grid-cols-3 items-center text-white">
                         <hr class="border-gray-400">
@@ -52,5 +50,4 @@
             </div>
         </section>
     </body>
-
 </html>
