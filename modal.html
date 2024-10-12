@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tailwind CSS Modal</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    
+    <body class="bg-slate-200 flex items-center justify-center min-h-screen">
+        <div>
+            <label for="actionButton" class="bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-600 cursor-pointer transition duration-300">Action</label> 
+        </div>
+
+
+        <input type="checkbox" id="actionButton" class="hidden">   
+        <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 transition-opacity duration-300 opacity-0 pointer-events-none" id="modal">
+            <div class="bg-white rounded-lg shadow-lg max-w-5xl w-full p-6 relative max-h-screen overflow-y-auto">
+
+                <section class="relative">
+                    <div class="w-full rounded-t-lg overflow-hidden">
+                        <img src ="ivan4.png" class="w-full h-auto bg-gray-200 object-cover">
+                    <div class="text-center pt-5">
+                        <h2 class="text-xl font-bold">Ivan Petrov</h2>
+                        <h3 class="font-normal text-gray-500">ivan.petrov@sinksrus.com</h3>
+                    </div>
+                    </div>
+                </section>
+
+                <!--MODAL BODY-->
+                <section class="lg:flex lg:flex-row w-full"> 
+                    <section class="flex flex-col flex-1">
+                        <section class="flex flex-row items-center justify-stretch mt:5 pt-5 lg:mt-5 lg:pt-5 w-full">
+                            <p class="text-gray-600 w-60"><strong>Sex:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full"> Male</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Address:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full"> 12 Red Square, Moscow</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Contact No.</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">555-6789</p>
+                        </section>
+                    </section>
+
+                    <section class="flex flex-col flex-1 lg:ml-10 lg:pt-4 lg:mt-4">
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Marital Status</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">Single</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Department:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">IT</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Job Title:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">Software Engineer</p>
+                        </section>
+                    </section>
+                </section>
+                <label for="actionButton" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700 cursor-pointer">&times;</label>
+            </div>
+        </div>
+
+
+         <div>
+            <label for="actionButton2" class="bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-600 cursor-pointer transition duration-300">Action</label> 
+        </div>
+        <input type="checkbox" id="actionButton2" class="hidden">
+        <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 transition-opacity duration-300 opacity-0 pointer-events-none" id="modal2">
+
+
+            <div class="bg-white rounded-lg shadow-lg max-w-5xl w-full p-6 relative max-h-screen overflow-y-auto">
+                <section class="relative">
+                    <div class=" w-full rounded-t-lg overflow-hidden">
+                        <img src ="pedro.png" class="w-full h-auto bg-gray-200 object-cover">
+                        <div class="text-center pt-5">
+                            <h2 class="text-xl font-bold">Pedro Los Baños</h2>
+                            <h3 class="font-normal text-gray-500">pedro_los_banos@sinksrus.com</h3>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="lg:flex lg:flex-row w-full"> 
+                    <section class="flex flex-col flex-1">
+                        <section class="flex flex-row items-center justify-stretch mt:5 pt-5 lg:mt-5 lg:pt-5 w-full">
+                            <p class="text-gray-600 w-60"><strong>Sex:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full"> Male</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Address:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full"> 123 Mabini St</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Contact No.</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">N/A</p>
+                        </section>
+                    </section>
+
+                    <section class="flex flex-col flex-1 lg:ml-10 lg:pt-4 lg:mt-4">
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Marital Status</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">Married</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Department:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">Marketing</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Job Title:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">Marketing Manager</p>
+                        </section>
+                    </section>
+                </section>
+
+                <label for="actionButton2" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700 cursor-pointer">&times;</label>
+            </div>
+        </div>
+
+
+         <div>
+            <label for="actionButton3" class="bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-600 cursor-pointer transition duration-300">Action</label> 
+        </div>
+        <input type="checkbox" id="actionButton3" class="hidden">
+
+        <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 transition-opacity duration-300 opacity-0 pointer-events-none" id="modal3">
+            <div class="bg-white rounded-lg shadow-lg max-w-5xl w-full p-6 relative max-h-screen overflow-y-auto">
+                <section class="relative">
+                    <div class=" w-full rounded-t-lg overflow-hidden">
+                        <img src ="ana.png" class="w-full h-auto bg-gray-200 object-cover">
+                        <div class="text-center pt-5">
+                            <h2 class="text-xl font-bold">Ana Gómez</h2>
+                            <h3 class="font-normal text-gray-500">ana.gomez@sinksrus.com</h3>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="lg:flex lg:flex-row w-full"> 
+                    <section class="flex flex-col flex-1">
+                        <section class="flex flex-row items-center justify-stretch mt:5 pt-5 lg:mt-5 lg:pt-5 w-full">
+                            <p class="text-gray-600 w-60"><strong>Sex:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full"> Female</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Address:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full"> N/A</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Contact No.</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">555-1526</p>
+                        </section>
+                    </section>
+
+                    <section class="flex flex-col flex-1 lg:ml-10 lg:pt-4 lg:mt-4">
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Marital Status</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">Divorced</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Department:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">HR</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Job Title:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">	HR Specialist</p>
+                        </section>
+                    </section>
+                </section>
+
+                <label for="actionButton3" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700 cursor-pointer">&times;</label>
+            </div>
+        </div>
+
+         <div>
+            <label for="actionButton4" class="bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-600 cursor-pointer transition duration-300">Action</label> 
+        </div>
+
+
+        <input type="checkbox" id="actionButton4" class="hidden">
+        <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 transition-opacity duration-300 opacity-0 pointer-events-none" id="modal4">
+
+            <div class="bg-white rounded-lg shadow-lg max-w-5xl w-full p-6 relative max-h-screen overflow-y-auto">
+                <section class="relative">
+                    <div class=" w-full rounded-t-lg overflow-hidden">
+                        <img src ="john.png" class="w-full h-auto bg-gray-200 object-cover">
+                        <div class="text-center pt-5">
+                            <h2 class="text-xl font-bold">John Wu</h2>
+                            <h3 class="font-normal text-gray-500">john.wu@sinksrus.com</h3>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="lg:flex lg:flex-row w-full"> 
+                    <section class="flex flex-col flex-1">
+                        <section class="flex flex-row items-center justify-stretch mt:5 pt-5 lg:mt-5 lg:pt-5 w-full">
+                            <p class="text-gray-600 w-60"><strong>Sex:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full"> Male</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Address:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full"> 456 Rizal St</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Contact No.</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">555-6925</p>
+                        </section>
+                    </section>
+
+                    <section class="flex flex-col flex-1 lg:ml-10 lg:pt-4 lg:mt-4">
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Marital Status</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">Single</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Department:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">	Sales</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Job Title:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full "> Sales Associate</p>
+                        </section>
+                    </section>
+                </section>
+
+                <label for="actionButton4" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700 cursor-pointer">&times;</label>
+            </div>
+        </div>
+
+         <div>
+            <label for="actionButton5" class="bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-600 cursor-pointer transition duration-300">Action</label> 
+        </div>
+
+        <input type="checkbox" id="actionButton5" class="hidden">
+
+        <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 transition-opacity duration-300 opacity-0 pointer-events-none" id="modal5">
+
+            <div class="bg-white rounded-lg shadow-lg max-w-5xl w-full p-6 relative max-h-screen overflow-y-auto">
+                <section class="relative">
+                    <div class=" w-full rounded-t-lg overflow-hidden">
+                        <img src ="emma.png" class="w-full h-auto bg-gray-200 object-cover">
+                        <div class="text-center pt-5">
+                            <h2 class="text-xl font-bold">Emma Wilson</h2>
+                            <h3 class="font-normal text-gray-500">emma@sinksrus.com</h3>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="lg:flex lg:flex-row w-full"> 
+                    <section class="flex flex-col flex-1">
+                        <section class="flex flex-row items-center justify-stretch mt:5 pt-5 lg:mt-5 lg:pt-5 w-full">
+                            <p class="text-gray-600 w-60"><strong>Sex:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full"> Female</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Address:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full"> N/A</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Contact No.</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">555-1111</p>
+                        </section>
+                    </section>
+
+                    <section class="flex flex-col flex-1 lg:ml-10 lg:pt-4 lg:mt-4">
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Marital Status</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">Married</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Department:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">	Admin</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Job Title:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full "> CEO</p>
+                        </section>
+                    </section>
+                </section>
+
+                <label for="actionButton5" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700 cursor-pointer">&times;</label>
+            </div>
+        </div>
+
+        <style>
+            #actionButton:checked ~ #modal {
+                opacity:1;
+                pointer-events: auto;
+            }
+
+            #actionButton2:checked ~ #modal2 {
+                opacity:1;
+                pointer-events: auto;
+            }
+
+            #actionButton3:checked ~ #modal3 {
+                opacity:1;
+                pointer-events: auto;
+            }
+
+             #actionButton4:checked ~ #modal4 {
+                opacity:1;
+                pointer-events: auto;
+            }
+
+            #actionButton5:checked ~ #modal5 {
+                opacity:1;
+                pointer-events: auto;
+            }
+        </style>
+    </body>
+</html>
