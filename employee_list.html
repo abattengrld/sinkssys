@@ -1,101 +1,489 @@
 
 <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="list.css">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    
+    <body>
+        <div class="container">
+            <h1>Sink R Us</h1>
+            <table id="employeeTable">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable(0)">Name &#x25B2;</th>
+                        <th>Job Title</th>
+                        <th>Department</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ivan Petrov</td>
+                        <td>Software Engineer</td>
+                        <td>IT</td>
+                        <td>ivan.petrov@sinkrus.com</td>
+                        <div>
+                            <td><label for="actionButton">More</label></td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <td>Pedro Los Baños</td>
+                        <td>Marketing Manager</td>
+                        <td>Marketing</td>
+                        <td>pedro_los_banos@sinksrus.com</td>
+                        <td><label for="actionButton2">More</label></td>
+                    </tr>
+                    <tr>
+                        <td>Ana Gómez</td>
+                        <td>HR Specialist</td>
+                        <td>HR</td>
+                        <td>ana.gomez@sinksrus.com</td>
+                        <td><label for="actionButton3">More</label></td>
+                    </tr>
+                    <tr>
+                        <td>John Wu</td>
+                        <td>Sales Associate</td>
+                        <td>Sales</td>
+                        <td>john.wu@sinksrus.com</td>
+                        <td><label for="actionButton4">More</label></td>
+                    </tr>
+                    <tr>
+                        <td>Emma Wilson</td>
+                        <td>CEO</td>
+                        <td>Admin</td>
+                        <td>emma@sinksrus.com</td>
+                        <td><label for="actionButton5">More</label></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-<head>
-  <link rel="stylesheet" href="list.css">
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
-</head>
+        <script>
+            function sortTable(columnIndex) {
+                const table = document.getElementById("employeeTable");
+                let rows, switching, i, x, y, shouldSwitch, dir, switchCount = 0;
+                switching = true;
+                dir = "asc"; 
+                
+                while (switching) {
+                    switching = false;
+                    rows = table.rows;
+                    for (i = 1; i < (rows.length - 1); i++) {
+                        shouldSwitch = false;
+                        x = rows[i].getElementsByTagName("TD")[columnIndex];
+                        y = rows[i + 1].getElementsByTagName("TD")[columnIndex];
+                        if (dir == "asc") {
+                            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                                shouldSwitch = true;
+                                break;
+                            }
+                        } else if (dir == "desc") {
+                            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                                shouldSwitch = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (shouldSwitch) {
+                        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                        switching = true;
+                        switchCount++;
+                    } else {
+                        if (switchCount == 0 && dir == "asc") {
+                            dir = "desc";
+                            switching = true;
+                        }
+                    }
+                }
+            }
+        </script>
 
-<body>
-  <div class="container">
-      <h1>Sink R Us</h1>
-      <table id="employeeTable">
-          <thead>
-              <tr>
-                  <th onclick="sortTable(0)">Name &#x25B2;</th>
-                  <th>Job Title</th>
-                  <th>Department</th>
-                  <th>Email</th>
-                  <th>Action</th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr>
-                  <td>Ivan Petrov</td>
-                  <td>Software Engineer</td>
-                  <td>IT</td>
-                  <td>ivan.petrov@sinkrus.com</td>
-                  <td>More</td>
-              </tr>
-              <tr>
-                  <td>Pedro Los Baños</td>
-                  <td>Marketing Manager</td>
-                  <td>Marketing</td>
-                  <td>pedro_los_banos@sinksrus.com</td>
-                  <td>More</td>
-              </tr>
-              <tr>
-                  <td>Ana Gómez</td>
-                  <td>HR Specialist</td>
-                  <td>HR</td>
-                  <td>ana.gomez@sinksrus.com</td>
-                  <td>More</td>
-              </tr>
-              <tr>
-                  <td>John Wu</td>
-                  <td>Sales Associate</td>
-                  <td>Sales</td>
-                  <td>john.wu@sinksrus.com</td>
-                  <td>More</td>
-              </tr>
-              <tr>
-                  <td>Emma Wilson</td>
-                  <td>CEO</td>
-                  <td>Admin</td>
-                  <td>emma@sinksrus.com</td>
-                  <td>More</td>
-              </tr>
-          </tbody>
-      </table>
-  </div>
+        <!--checkbox 1st "More"-->
+        <input type="checkbox" id="actionButton" class="hidden">
 
-  <script>
-      function sortTable(columnIndex) {
-          const table = document.getElementById("employeeTable");
-          let rows, switching, i, x, y, shouldSwitch, dir, switchCount = 0;
-          switching = true;
-          dir = "asc"; 
-        
-          while (switching) {
-              switching = false;
-              rows = table.rows;
-              for (i = 1; i < (rows.length - 1); i++) {
-                  shouldSwitch = false;
-                  x = rows[i].getElementsByTagName("TD")[columnIndex];
-                  y = rows[i + 1].getElementsByTagName("TD")[columnIndex];
-                  if (dir == "asc") {
-                      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                          shouldSwitch = true;
-                          break;
-                      }
-                  } else if (dir == "desc") {
-                      if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                          shouldSwitch = true;
-                          break;
-                      }
-                  }
-              }
-              if (shouldSwitch) {
-                  rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                  switching = true;
-                  switchCount++;
-              } else {
-                  if (switchCount == 0 && dir == "asc") {
-                      dir = "desc";
-                      switching = true;
-                  }
-              }
-          }
-      }
-  </script>
-</body>
+        <!--checkbox 2nd "More"-->
+        <input type="checkbox" id="actionButton2" class="hidden">
+
+        <!--checkbox 3rd "More"-->
+        <input type="checkbox" id="actionButton3" class="hidden">
+
+        <!--checkbox 4th "More"-->
+        <input type="checkbox" id="actionButton4" class="hidden">
+
+       <!--checkbox 5th "More"-->
+        <input type="checkbox" id="actionButton5" class="hidden">
+
+
+        <!--MORE #1-->
+        <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 transition-opacity duration-300 opacity-0 pointer-events-none" id="modal">
+
+            <!--MODAL-->
+            <div class="bg-white rounded-lg shadow-lg max-w-5xl w-full p-6 relative max-h-screen overflow-y-auto">
+
+            <section class="relative">
+                <!--cover photo (gray)-->
+                <div class="h-60 w-full rounded-t-lg bg-slate-200 relative">
+
+                    <!--profile picture-->
+                    <div class="absolute left-5 mt-40 transform -translate-y-1/2 ">
+                        <img src ="ivan5.png" class="w-full h-full object-cover pt-40"alt="Profile Picture">
+                    </div>
+
+                    <!--Edit button-->
+                    <button class="absolute right-5 top-5 bg-blue-500 text-white px-4 py-2 rounded-full">Edit</button>
+                </div>
+
+                <div class="text-center pt-36">
+                    <h2 class="text-2xl font-bold">Ivan Petrov</h2>
+                    <h3 class="font-normal text-gray-500">ivan.petrov@sinksrus.com</h3>
+                </div>
+            </section>
+
+                <!--MODAL BODY-->
+                <section class="lg:flex lg:flex-row w-full"> 
+                    <section class="flex flex-col flex-1">
+                        <section class="flex flex-row items-center justify-stretch mt:5 pt-5 lg:mt-5 lg:pt-5 w-full">
+                            <p class="text-gray-600 w-60"><strong>Sex:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full"> Male</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <!--justify-stretch (fill avail space)-->
+                            <p class="text-gray-600 w-60"><strong>Address:</strong></p>
+                            <!--strong (make text bold, gives importance)-->
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full"> 12 Red Square, Moscow</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Contact No.</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">555-6789</p>
+                        </section>
+                    </section>
+
+                    <section class="flex flex-col flex-1 lg:ml-10 lg:pt-4 lg:mt-4">
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Marital Status</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">Single</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Department:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">IT</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Job Title:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">Software Engineer</p>
+                        </section>
+                    </section>
+                </section>
+
+                <!--Close Button-->
+                <label for="actionButton" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700 cursor-pointer">&times;</label>
+            </div>
+        </div>
+
+        <!--MORE #2-->
+        <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 transition-opacity duration-300 opacity-0 pointer-events-none" id="modal2">
+
+            <!--MODAL CONTENT-->
+            <div class="bg-white rounded-lg shadow-lg max-w-5xl w-full p-6 relative max-h-screen overflow-y-auto">
+                
+                <section class="relative">
+                    <!--cover photo (gray)-->
+                    <div class="h-60 w-full rounded-t-lg bg-slate-200 relative">
+    
+                        <!--profile picture-->
+                        <div class="absolute left-5 mt-40 transform -translate-y-1/2 ">
+                            <img src ="pedro2.png" class="w-full h-full object-cover pt-40"alt="Profile Picture">
+                        </div>
+    
+                        <!--Edit button-->
+                        <button class="absolute right-5 top-5 bg-blue-500 text-white px-4 py-2 rounded-full">Edit</button>
+                    </div>
+    
+                    <div class="text-center pt-36">
+                        <h2 class="text-2xl font-bold">Pedro Los Baños</h2>
+                        <h3 class="font-normal text-gray-500">pedro_los_banos@sinksrus.com</h3>
+                    </div>
+                </section>
+
+                <!--MODAL BODY-->
+                <section class="lg:flex lg:flex-row w-full"> 
+                    <section class="flex flex-col flex-1">
+                        <section class="flex flex-row items-center justify-stretch mt:5 pt-5 lg:mt-5 lg:pt-5 w-full">
+                            <p class="text-gray-600 w-60"><strong>Sex:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full"> Male</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Address:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full"> 123 Mabini St</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Contact No.</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">N/A</p>
+                        </section>
+                    </section>
+
+                    <section class="flex flex-col flex-1 lg:ml-10 lg:pt-4 lg:mt-4">
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Marital Status</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">Married</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Department:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">Marketing</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Job Title:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">Marketing Manager</p>
+                        </section>
+                    </section>
+                </section>
+
+                <!--Close Button-->
+                <label for="actionButton2" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700 cursor-pointer">&times;</label>
+            </div>
+        </div>
+
+        <!--MORE #3-->
+        <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 transition-opacity duration-300 opacity-0 pointer-events-none" id="modal3">
+
+            <!--MODAL CONTENT-->
+            <div class="bg-white rounded-lg shadow-lg max-w-5xl w-full p-6 relative max-h-screen overflow-y-auto">
+
+                <section class="relative">
+                    <!--cover photo (gray)-->
+                    <div class="h-60 w-full rounded-t-lg bg-slate-200 relative">
+    
+                        <!--profile picture-->
+                        <div class="absolute left-5 mt-40 transform -translate-y-1/2 ">
+                            <img src ="ana2.png" class="w-full h-full object-cover pt-40"alt="Profile Picture">
+                        </div>
+    
+                        <!--Edit button-->
+                        <button class="absolute right-5 top-5 bg-blue-500 text-white px-4 py-2 rounded-full">Edit</button>
+                    </div>
+    
+                    <div class="text-center pt-36">
+                        <h2 class="text-2xl font-bold">Ana Gómez</h2>
+                        <h3 class="font-normal text-gray-500">ana.gomez@sinksrus.com</h3>
+                    </div>
+                </section>
+
+                <!--MODAL BODY-->
+                <section class="lg:flex lg:flex-row w-full"> 
+                    <section class="flex flex-col flex-1">
+                        <section class="flex flex-row items-center justify-stretch mt:5 pt-5 lg:mt-5 lg:pt-5 w-full">
+                            <p class="text-gray-600 w-60"><strong>Sex:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full"> Female</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Address:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full"> N/A</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Contact No.</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">555-1526</p>
+                        </section>
+                    </section>
+
+                    <section class="flex flex-col flex-1 lg:ml-10 lg:pt-4 lg:mt-4">
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Marital Status</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">Divorced</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Department:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">HR</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Job Title:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">	HR Specialist</p>
+                        </section>
+                    </section>
+                </section>
+
+                <!--Close Button-->
+                <label for="actionButton3" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700 cursor-pointer">&times;</label>
+            </div>
+        </div>
+
+        <!--MORE #4-->
+        <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 transition-opacity duration-300 opacity-0 pointer-events-none" id="modal4">
+
+            <!--MODAL CONTENT-->
+            <div class="bg-white rounded-lg shadow-lg max-w-5xl w-full p-6 relative max-h-screen overflow-y-auto">
+
+                <section class="relative">
+                    <!--cover photo (gray)-->
+                    <div class="h-60 w-full rounded-t-lg bg-slate-200 relative">
+    
+                        <!--profile picture-->
+                        <div class="absolute left-5 mt-40 transform -translate-y-1/2 ">
+                            <img src ="john2.png" class="w-full h-full object-cover pt-40"alt="Profile Picture">
+                        </div>
+    
+                        <!--Edit button-->
+                        <button class="absolute right-5 top-5 bg-blue-500 text-white px-4 py-2 rounded-full">Edit</button>
+                    </div>
+    
+                    <div class="text-center pt-36">
+                        <h2 class="text-2xl font-bold">John Wu</h2>
+                        <h3 class="font-normal text-gray-500">john.wu@sinksrus.com</h3>
+                    </div>
+                </section>
+
+                <!--MODAL BODY-->
+                <section class="lg:flex lg:flex-row w-full"> 
+                    <section class="flex flex-col flex-1">
+                        <section class="flex flex-row items-center justify-stretch mt:5 pt-5 lg:mt-5 lg:pt-5 w-full">
+                            <p class="text-gray-600 w-60"><strong>Sex:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full"> Male</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Address:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full"> 456 Rizal St</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Contact No.</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">555-6925</p>
+                        </section>
+                    </section>
+
+                    <section class="flex flex-col flex-1 lg:ml-10 lg:pt-4 lg:mt-4">
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Marital Status</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">Single</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Department:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">	Sales</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Job Title:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full "> Sales Associate</p>
+                        </section>
+                    </section>
+                </section>
+
+                <!--Close Button-->
+                <label for="actionButton4" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700 cursor-pointer">&times;</label>
+            </div>
+        </div>
+
+        <!--MORE #5-->
+        <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 transition-opacity duration-300 opacity-0 pointer-events-none" id="modal5">
+
+            <!--MODAL CONTENT-->
+            <div class="bg-white rounded-lg shadow-lg max-w-5xl w-full p-6 relative max-h-screen overflow-y-auto">
+                <section class="relative">
+                    <!--cover photo (gray)-->
+                    <div class="h-60 w-full rounded-t-lg bg-slate-200 relative">
+    
+                        <!--profile picture-->
+                        <div class="absolute left-5 mt-40 transform -translate-y-1/2 ">
+                            <img src ="emma2.png" class=" w-full h-full object-cover pt-40"alt="Profile Picture">
+                        </div>
+    
+                        <!--Edit button-->
+                        <button class="absolute right-5 top-5 bg-blue-500 text-white px-4 py-2 rounded-full">Edit</button>
+                    </div>
+    
+                    <div class="text-center pt-36">
+                        <h2 class="text-2xl font-bold">Emma Wilson</h2>
+                        <h3 class="font-normal text-gray-500">emma@sinksrus.com</h3>
+                    </div>
+                </section>
+
+                <!--MODAL BODY-->
+                <section class="lg:flex lg:flex-row w-full"> 
+                    <section class="flex flex-col flex-1">
+                        <section class="flex flex-row items-center justify-stretch mt:5 pt-5 lg:mt-5 lg:pt-5 w-full">
+                            <p class="text-gray-600 w-60"><strong>Sex:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full"> Female</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Address:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full"> N/A</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Contact No.</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">555-1111</p>
+                        </section>
+                    </section>
+
+                    <section class="flex flex-col flex-1 lg:ml-10 lg:pt-4 lg:mt-4">
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Marital Status</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">Married</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Department:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full ">	Admin</p>
+                        </section>
+    
+                        <section class="flex flex-row items-center justify-stretch mt-2 w-full">
+                            <p class="text-gray-600 w-60"><strong>Job Title:</strong></p>
+                            <p class="bg-white shadow-inner border border-gray-300  text-gray-600 text-center rounded-lg pl-5 pr-5 py-2 ml-4 text-sm md:text-base whitespace-nowrap w-full "> CEO</p>
+                        </section>
+                    </section>
+                </section>
+
+                <!--Close Button-->
+                <label for="actionButton5" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700 cursor-pointer">&times;</label>
+            </div>
+        </div>
+
+        <style>
+            /* When the 1st checkbox is checked, show the first modal */
+            #actionButton:checked ~ #modal {
+                opacity:1;
+                pointer-events: auto;
+            }
+
+            /* When the 2nd checkbox is checked, show the second modal */
+            #actionButton2:checked ~ #modal2 {
+                opacity:1;
+                pointer-events: auto;
+            }
+
+            /* When the 3rd checkbox is checked, show the second modal */
+            #actionButton3:checked ~ #modal3 {
+                opacity:1;
+                pointer-events: auto;
+            }
+
+            /* When the 4th checkbox is checked, show the second modal */
+            #actionButton4:checked ~ #modal4 {
+                opacity:1;
+                pointer-events: auto;
+            }
+
+             /* When the 5th checkbox is checked, show the second modal */
+             #actionButton5:checked ~ #modal5 {
+                opacity:1;
+                pointer-events: auto;
+            }
+        </style>
+    </body>
+</html>
